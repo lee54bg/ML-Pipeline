@@ -5,8 +5,7 @@ pipeline {
             steps {
                 sh 'echo "Setting up the environment"'
                 sh 'python3 -m venv main'
-                sh 'cd main'
-                sh 'source bin/activate'
+                sh 'cd main && source bin/activate'
                 sh 'pip install --upgrade pip'
                 sh 'pip install sklearn'
                 sh 'pip install pandas'
