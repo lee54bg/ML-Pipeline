@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'echo "Starting the test phase..."'
                 sh 'Executing script'
+                sh 'New addition'
                 // sh '''
                 //     echo "This should not go through"
                 //     ls -lah
