@@ -2,12 +2,12 @@ import os
 
 print("Initiating the loop")
 
-for filename in os.listdir("."):
-    # if filename.endswith(".asm") or filename.endswith(".py"): 
-    if filename == "dataset":
-        print("Dataset directory exists")
-    else:
-        print(filename)
+for root, dirs, files in os.walk(".", topdown=False):
+    # for name in files:
+    #    print(os.path.join(root, name))
+    for name in dirs:
+        if name == "dataset"
+    # print(os.path.join(root, name))
 
 # directory_name="sampleenv"
 
