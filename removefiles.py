@@ -1,12 +1,13 @@
 import os
 
+print("Initiating the loop")
+
 for filename in os.listdir("."):
     # if filename.endswith(".asm") or filename.endswith(".py"): 
     if filename == "dataset":
         print("Dataset directory exists")
-        sys.exit(0)
     else:
-        continue
+        print(filename)
 
 # directory_name="sampleenv"
 
