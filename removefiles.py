@@ -6,7 +6,8 @@ for root, dirs, files in os.walk(".", topdown=False):
     # for name in files:
     #    print(os.path.join(root, name))
     for name in dirs:
-        if name == "dataset"
+        if name == "dataset":
+            print("Dataset dir exists")
     # print(os.path.join(root, name))
 
 # directory_name="sampleenv"
