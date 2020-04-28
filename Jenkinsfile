@@ -10,13 +10,15 @@ pipeline {
                     && pip install --upgrade pip \
                     && pip install sklearn \
                     && pip install pandas \
+                    && pip install numpy \
+                    && pip install matplotlib \
                 '
             }
         }
         stage('Build') {
             steps {
-                // sh 'echo "World"'
-                sh 'python3 main/random_forest_classification.py'
+                sh 'echo "Preprocessing and training in progress..."'
+                sh 'main/bin/python3 main/random_forest_classification.py'
             }
         }
         stage('Test') {
@@ -32,6 +34,11 @@ pipeline {
                 //     echo "This should not go through"
                 //     ls -lah
                 // '''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying the model..."'
             }
         }
     }
