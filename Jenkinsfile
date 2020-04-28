@@ -16,7 +16,7 @@ pipeline {
         stage('Build') {
             steps {
                 // sh 'echo "World"'
-                sh 'python3 test.py'
+                sh 'python3 main/random_forest_classification.py'
             }
         }
         stage('Test') {
