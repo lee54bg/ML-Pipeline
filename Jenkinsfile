@@ -4,9 +4,9 @@ pipeline {
         stage('Build') {
             steps {
                 // sh 'echo "World"'
-                sh 'python test.py'
+                sh 'python3 test.py'
                 sh '''
-                    echo "Multiline shell steps works too"
+                    echo "This should not go through"
                     ls -lah
                 '''
             }
