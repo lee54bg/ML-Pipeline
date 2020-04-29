@@ -26,6 +26,13 @@ from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
 classifier.fit(X_train, y_train)
 
+import pickle
+
+mlmodel_filename = 'dataset/ml-model.pkl'
+pickle.dump(model, open(mlmodel_filename, 'wb'))
+
+print("Saved ml-model to " + mlmodel_filename)
+
 # Predicting the Test set results
 y_pred = classifier.predict(X_test)
 
@@ -75,3 +82,9 @@ plt.plot(range(10), range(10), "o")
 plt.show()
 
 f.savefig("foo.pdf", bbox_inches='tight')
+
+import pickle
+
+
+# https://scikit-learn.org/stable/modules/model_evaluation.html
+# https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.htmlpkl
