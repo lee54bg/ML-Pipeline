@@ -68,4 +68,10 @@ plt.title('Random Forest Classification (Test set)')
 plt.xlabel('Age')
 plt.ylabel('Estimated Salary')
 plt.legend()
+
+f = plt.figure()
+
+plt.plot(range(10), range(10), "o")
 plt.show()
+
+f.savefig("foo.pdf", bbox_inches='tight')
