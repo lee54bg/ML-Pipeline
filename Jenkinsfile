@@ -8,6 +8,7 @@ pipeline {
                 sh 'cd main \
                     && source bin/activate \
                     && pip install --upgrade pip \
+                    && pip install wheel \
                     && pip install sklearn \
                     && pip install pandas \
                     && pip install numpy \
