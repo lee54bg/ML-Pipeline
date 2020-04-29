@@ -1,5 +1,9 @@
 # Random Forest Classification
 print("Starting preprocessing...")
+import os
+
+print(os.getcwd())
+print(os.path.isdir("../dataset"))
 
 # Importing the libraries
 import numpy as np
