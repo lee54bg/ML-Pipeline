@@ -29,7 +29,7 @@ classifier.fit(X_train, y_train)
 import pickle
 
 mlmodel_filename = 'dataset/ml-model.pkl'
-pickle.dump(model, open(mlmodel_filename, 'wb'))
+pickle.dump(classifier, open(mlmodel_filename, 'wb'))
 
 print("Saved ml-model to " + mlmodel_filename)
 
