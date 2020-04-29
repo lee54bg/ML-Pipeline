@@ -1,4 +1,5 @@
 # Random Forest Classification
+print("Starting preprocessing...")
 
 # Importing the libraries
 import numpy as np
