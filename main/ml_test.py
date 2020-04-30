@@ -12,13 +12,13 @@ pickled_xtest, pickled_ytest = pickle.load(open("dataset/train_data/train_data.p
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
 sc = StandardScaler()
-X_train = sc.fit_transform(X_train)
-X_test = sc.transform(X_test)
+pickled_xtrain = sc.fit_transform(pickled_xtrain)
+pickled_xtest = sc.transform(pickled_xtest)
 
 # Training the Random Forest Classification model on the Training set
 from sklearn.ensemble import RandomForestClassifier
 classifier = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 0)
-classifier.fit(X_train, y_train)
+classifier.fit(pickled_xtrain, pickled_ytrain)
 
 mlmodel_filename = 'trained_models/ml-model.pkl'
 pickle.dump(classifier, open(mlmodel_filename, 'wb'))
@@ -26,16 +26,16 @@ pickle.dump(classifier, open(mlmodel_filename, 'wb'))
 print("Saved ml-model to " + mlmodel_filename)
 
 # Predicting the Test set results
-y_pred = classifier.predict(X_test)
+y_pred = classifier.predict(pickled_xtest)
 
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
-cm = confusion_matrix(y_test, y_pred)
+cm = confusion_matrix(pickled_ytest, y_pred)
 print(cm)
 
 # Visualising the Training set results
 from matplotlib.colors import ListedColormap
-X_set, y_set = X_train, y_train
+X_set, y_set = pickled_xtrain, pickled_ytrain
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
 plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
@@ -53,7 +53,7 @@ plt.show()
 
 # Visualising the Test set results
 from matplotlib.colors import ListedColormap
-X_set, y_set = X_test, y_test
+X_set, y_set = pickled_xtest, pickled_ytest
 X1, X2 = np.meshgrid(np.arange(start = X_set[:, 0].min() - 1, stop = X_set[:, 0].max() + 1, step = 0.01),
                      np.arange(start = X_set[:, 1].min() - 1, stop = X_set[:, 1].max() + 1, step = 0.01))
 plt.contourf(X1, X2, classifier.predict(np.array([X1.ravel(), X2.ravel()]).T).reshape(X1.shape),
