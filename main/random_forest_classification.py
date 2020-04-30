@@ -21,8 +21,8 @@ print("Before pickling")
 print(X_train.shape)
 
 # Put the train and test datasets into pickle files
-train_data = (X_train, X_test)
-test_data = (y_train, y_test)
+train_data = (X_train, y_train)
+test_data = (X_test, y_test)
 
 pickle.dump(train_data, open("dataset/test_data/test_data.pkl", 'wb'))
 pickle.dump(test_data, open("dataset/train_data/train_data.pkl", 'wb'))
