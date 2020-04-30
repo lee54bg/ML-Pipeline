@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 # import pandas as pd
 import pickle
 
-pickled_xtrain, pickled_ytrain = pickle.load(open("dataset/test_data/test_data.pkl", 'rb'))
-pickled_xtest, pickled_ytest = pickle.load(open("dataset/train_data/train_data.pkl", 'rb'))
+pickled_xtest, pickled_ytest = pickle.load(open("dataset/test_data/test_data.pkl", 'rb'))
+pickled_xtrain, pickled_ytrain = pickle.load(open("dataset/train_data/train_data.pkl", 'rb'))
 
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
