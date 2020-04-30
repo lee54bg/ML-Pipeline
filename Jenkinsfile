@@ -30,11 +30,16 @@ pipeline {
         stage('Cleanup') {
             steps {
                 sh 'echo "Starting the cleanup phase..."'
-                // sh 'python3 removefiles.py'
+                sh 'python3 removefiles.py'
                 // sh '''
                 //     echo "This should not go through"
                 //     ls -lah
                 // '''
+            }
+        }
+        stage('Archive') {
+            steps {
+                archiveArtifacts artifacts: 'foo.pdf', fingerprint: true, onlyIfSuccessful: true
             }
         }
         stage('Deploy') {
