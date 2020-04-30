@@ -25,6 +25,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'echo "Starting the test phase..."'
+                sh 'main/bin/python3 main/ml_test.py'
             }
         }
         stage('Cleanup') {
