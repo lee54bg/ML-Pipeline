@@ -21,13 +21,16 @@ print("Before pickling")
 print(X_train.shape)
 
 # Put the train and test datasets into pickle files
-datasets_test2 = (X_train, X_test, y_train, y_test)
-pickle.dump(datasets_test2, open("tuple_model.pkl", 'wb'))
+train_data = (X_train, X_test)
+test_data = (y_train, y_test)
 
-pickled_xtrain, pickled_xtest, pickled_ytrain, pickled_ytrain = pickle.load(open("tuple_model.pkl", 'rb'))
+pickle.dump(train_data, open("dataset/test_data/test_data.pkl", 'wb'))
+pickle.dump(test_data, open("dataset/train_data/train_data.pkl", 'wb'))
 
-print("After loading the train and test sets from pickle")
-print(pickled_xtrain.shape)
+# pickled_xtrain, pickled_xtest, pickled_ytrain, pickled_ytrain = pickle.load(open("tuple_model.pkl", 'rb'))
+
+# print("After loading the train and test sets from pickle")
+# print(pickled_xtrain.shape)
 
 # Feature Scaling
 from sklearn.preprocessing import StandardScaler
