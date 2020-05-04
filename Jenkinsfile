@@ -1,5 +1,6 @@
 pipeline {
-    agent { label 'ubuntu-slave1' }
+    // This will be used for the Jenkins Slave
+    agent { label 'jenkinsworker1' }
     stages {
         stage('Environment Setup') {
             steps {
