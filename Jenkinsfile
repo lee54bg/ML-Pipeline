@@ -50,6 +50,7 @@ pipeline {
             }
         }
     } // End of stages
+    // Send email after everything is finished
     post {
         always {
             emailext body: 'A Test EMail', recipientProviders: [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']], subject: 'Test'
